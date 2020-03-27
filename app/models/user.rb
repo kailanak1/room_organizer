@@ -5,5 +5,5 @@ class User < ApplicationRecord
     accepts_nested_attributes_for :rooms
 
     validates :name, uniqueness: true
-
+    validates :name, presence: true
 end

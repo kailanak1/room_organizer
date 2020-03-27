@@ -12,7 +12,11 @@ class Api::V1::ItemsController < ApplicationController
 
     def new
         item = Item.new
-        render json: item 
+        if item.name 
+            render json: item 
+            else 
+                render json: {message: "Please provide a name"}
+            end 
     end
 
     def create

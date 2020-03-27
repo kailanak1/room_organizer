@@ -17,7 +17,11 @@ class Api::V1::StoragesController < ApplicationController
 
     def create
         storage = Storage.create(storage_params)
+        if storage.name 
         render json: storage 
+        else 
+            render json: {message: "Please provide a name"}
+        end 
     end
 
     def edit

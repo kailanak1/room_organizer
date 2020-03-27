@@ -17,7 +17,11 @@ class Api::V1::RoomsController < ApplicationController
 
     def create
         room = Room.create(room_params)
-        render json: room 
+        if room.name 
+            render json: room 
+            else 
+                render json: {message: "Please provide a name"}
+            end 
     end
 
     def edit
